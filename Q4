@@ -1,0 +1,65 @@
+//Write a program to create an Image class with attributes imageWidth, imageHeight,
+and colorCode. Add the required constructor, set methods, get methods, and toString
+method. Create the object of the image class using the default and parameterized
+constructor and print the details of the object.
+
+
+
+class Image {
+    private int imageWidth;
+    private int imageHeight;
+    private String colorCode;
+
+    
+    public Image() {
+        this.imageWidth = 0;
+        this.imageHeight = 0;
+        this.colorCode = "#FF0003"; 
+    }
+
+   
+    public Image(int imageWidth, int imageHeight, String colorCode) {
+        this.imageWidth = imageWidth;
+        this.imageHeight = imageHeight;
+        this.colorCode = colorCode;
+    }
+
+    public int getImageWidth() {
+        return imageWidth;
+    }
+
+    public int getImageHeight() {
+        return imageHeight;
+    }
+
+    public String getColorCode() {
+        return colorCode;
+    }
+
+ 
+    public void setImageWidth(int imageWidth) {
+        this.imageWidth = imageWidth;
+    }
+
+    public void setImageHeight(int imageHeight) {
+        this.imageHeight = imageHeight;
+    }
+
+    public void setColorCode(String colorCode) {
+        this.colorCode = colorCode;
+    }
+@Override
+    public String toString() {
+        return "Image Width=" + imageWidth + ", Height=" + imageHeight + ", ColorCode=" + colorCode ";
+    }
+
+    public static void main(String[] args) {
+        //using default constructor
+        Image defaultImage = new Image();
+        System.out.println("Default Image: " + defaultImage);
+
+       //using paramaterized constructor
+        Image customImage = new Image(1920, 1080, "#FF5733");
+        System.out.println("Custom Image: " + customImage);
+    }
+}

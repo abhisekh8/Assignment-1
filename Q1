@@ -1,0 +1,64 @@
+//Write a Java program with a Car class having private fields (make, model), a
+parameterized constructor, getter, and setter methods. In the CarTester class,
+instantiate myCar1 with values and myCar2 with null. Print their initial details,
+update myCar2 using setters, and print the updated details.
+
+
+
+class Car {
+    private String make;
+    private String model;
+
+   
+    public Car(String make, String model) {
+        this.make = make;
+        this.model = model;
+    }
+
+
+    public String getMake() {
+        return make;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+   
+    public void setMake(String make) {
+        this.make = make;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+  
+    public void displayCarDetails() {
+        System.out.println("Car Make: " + make + " Model: " + model);
+    }
+}
+
+public class CarTester {
+    public static void main(String[] args) {
+      
+        Car Car1 = new Car("Toyota", "Supra");
+        
+        
+        Car Car2 = new Car(null, null);
+        
+       
+        System.out.println("Initial Car Details:");
+        Car1.displayCarDetails();
+        Car2.displayCarDetails();
+        
+       
+        Car2.setMake("Toyota");
+        Car2.setModel("Fortuner");
+        
+      
+        System.out.println("Updated Car Details:");
+        Car1.displayCarDetails();
+        Car2.displayCarDetails();
+    }
+}

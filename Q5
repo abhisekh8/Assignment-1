@@ -1,0 +1,95 @@
+//Create an ImageLibrary, which contains a set of image objects (from Q4) and
+operations such as searching an image, inserting an image, and getting an image.
+Create an ImageController class to manage the program execution and call the
+methods to create and manipulate images.
+
+
+
+
+
+
+import java.util.ArrayList;
+
+class Image {
+    int imageWidth;
+    int imageHeight;
+    String colorCode;
+
+   
+    public Image() {
+        this.imageWidth = 100; 
+        this.imageHeight = 100; 
+        this.colorCode = "FFFFFF"; 
+    }
+
+ 
+    public Image(int imageWidth, int imageHeight, String colorCode) {
+        this.imageWidth = imageWidth;
+        this.imageHeight = imageHeight;
+        this.colorCode = colorCode;
+    }
+
+   
+    public String toString() {
+        return "Width: " + imageWidth + ", Height: " + imageHeight + ", Color: " + colorCode;
+    }
+}
+
+class ImageLibrary {
+    private ArrayList<Image> images;
+
+   
+    public ImageLibrary() {
+        images = new ArrayList<>();
+    }
+
+    
+    public void addImage(Image image) {
+        images.add(image);
+    }
+
+    
+    public Image findImage(String colorCode) {
+        for (Image img : images) {
+            if (img.colorCode.equals(colorCode)) {
+                return img;
+            }
+        }
+        return null; 
+    }
+
+   
+    public void displayAllImages() {
+        for (Image img : images) {
+            System.out.println(img);
+        }
+    }
+}
+
+public class ImageController {
+
+    public static void main(String[] args) {
+       
+        ImageLibrary library = new ImageLibrary();
+
+        
+        Image image1 = new Image(); 
+        Image image2 = new Image(1920, 1080, "FF5733"); 
+
+      
+        library.addImage(image1);
+        library.addImage(image2);
+
+        
+        System.out.println("All images in the library:");
+        library.displayAllImages();
+
+      
+        Image foundImage = library.findImage("FF5733");
+        if (foundImage != null) {
+            System.out.println("Found image: " + foundImage);
+        } else {
+            System.out.println("Image not found.");
+        }
+    }
+}
